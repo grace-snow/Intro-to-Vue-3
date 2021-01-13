@@ -21,6 +21,11 @@ body {
   cursor: pointer;
 }
 
+*:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .cart {
   margin: 25px 100px;
   float: right;
