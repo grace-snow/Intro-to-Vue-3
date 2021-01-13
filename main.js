@@ -6,20 +6,19 @@ const app = Vue.createApp({
             brand: 'Vue Mastery',
             selectedVariant: 0,
             details: ['50% cotton', '30% wool', '20% polyester'],
+            onSale: true,
             variants: [
               { 
                 id: 2234,
                 color: 'green',
                 image: './assets/images/socks_green.jpg',
                 quantity: 50,
-                onSale: true,
               },
               { 
                 id: 2235,
                 color: 'blue',
                 image: './assets/images/socks_blue.jpg',
                 quantity: 0,
-                onSale: false,
               },
             ]
         }
@@ -42,8 +41,11 @@ const app = Vue.createApp({
         inStock() {
           return this.variants[this.selectedVariant].quantity;
         },
-        onSale() {
-          return this.variants[this.selectedVariant].onSale;
+        saleStatus() {
+          if (this.onSale) {
+            return this.brand + ' ' + this.product + ' is on sale.'
+          }
+          return ''
         },
     }
 })
