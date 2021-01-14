@@ -14,6 +14,7 @@
 
       <div class="cart">Cart({{ cart.length }})</div>
 
+      <!-- when component asks for `:cart`, use App data item 'cart' -->
       <product-display :premium="premium" :cart="cart" @add-to-cart="addById" @remove-from-cart="removeById"></product-display>
     
     </div>
