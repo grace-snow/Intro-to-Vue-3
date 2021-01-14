@@ -20,7 +20,13 @@ app.component('review-form', {
       <option>2</option>
       <option>1</option>
     </select>
-    
+
+    <label for="recommend">Would you recommend this product?</label>
+    <select id="recommend" v-model="recommend">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
     <input class="button" type="submit" value="Submit">  
   </form>`,
   data() {
@@ -28,12 +34,13 @@ app.component('review-form', {
       name: '',
       review: '',
       rating: null,
+      recommend: null,
     }
   }, 
   methods: {
     onSubmit() {
       // 4. add completion check
-      if (this.name === '' || this.review === '' || this.rating === null) {
+      if (this.name === '' || this.review === '' || this.rating === null || this.recommend === null) {
         alert('Please fill out all fields');
         return
       }
@@ -43,15 +50,17 @@ app.component('review-form', {
         name: this.name,
         review: this.review,
         rating: this.rating,
+        recommend: this.recommend,
       }
 
       // 2. emit that data so it can live on the product, not this form
       this.$emit('review-submitted', productReview);
 
       // 3. Reset form data
-      this.name   = '';
+      this.name = '';
       this.review = '';
       this.rating = null;
+      this.recommend = null;
     }
   },
 })
