@@ -20,6 +20,7 @@ app.component('product-display', {
 
           <p>Shipping: {{ shipping }}</p>
 
+          // For prop :details on product-details component (what component expects to receive), use data in this component that's named 'details'
           <product-details :details="details"></product-details>
 
           <div 

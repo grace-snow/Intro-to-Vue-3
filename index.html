@@ -14,8 +14,12 @@
 
       <div class="cart">Cart({{ cart }})</div>
       
+
+      <!-- For prop :premium on product-display component (what component expects to receive), use data from main.js (app) that's named 'premium' -->
       <product-display :premium="premium"></product-display>
-      <product-display :premium="premium"></product-display>
+      
+      <!-- Or override by resetting it - there is almost certainly a better way to do this! Perhaps via computed properties? -->
+      <product-display :premium="false"></product-display>
       <product-display :premium="premium"></product-display>
 
     </div>
